@@ -1,8 +1,8 @@
-import './login.scss';
-import users from '../config/users';
-import { useState } from 'react';
-import * as _ from 'underscore';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import * as _ from 'underscore';
+import users from '../config/users';
+import './login.scss';
 
 function Login() {
     const navigate = useNavigate();
@@ -11,6 +11,10 @@ function Login() {
         password : "",
         error: false
     })
+
+    useEffect(() => {
+        localStorage.setItem('isLoggedIn', false);
+    }, []);
             
     const handleSignIn = (e) => {
         const { username, password } = state;
@@ -23,10 +27,12 @@ function Login() {
             handleError();
             return;
         };
+        localStorage.setItem('isLoggedIn', true);
         navigate("/profile");
     }
 
     const handleError = () => {
+        localStorage.setItem('isLoggedIn', false);
         setState(prevState => ({
             ...prevState,
             error: true
@@ -73,5 +79,4 @@ function Login() {
         </div>
     )
 }
-
 export default Login;
