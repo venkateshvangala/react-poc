@@ -57,7 +57,7 @@ function Login() {
     return(
         <div className="container-main login-page-container"> 
             {state.error ? (<div className='login-error-container bg-danger'>
-                fafasf
+                Please Enter Valid Credentials
             </div>): null }
             <div className='login-container'>
                 <h3 className='text-center mb-4'> Sign In</h3>
