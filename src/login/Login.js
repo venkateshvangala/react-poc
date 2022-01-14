@@ -2,9 +2,10 @@ import './login.scss';
 import users from '../config/users';
 import { useState } from 'react';
 import * as _ from 'underscore';
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-
+    const navigate = useNavigate();
     const [state , setState] = useState({
         username : "",
         password : "",
@@ -22,6 +23,7 @@ function Login() {
             handleError();
             return;
         };
+        navigate("/profile");
     }
 
     const handleError = () => {
@@ -64,7 +66,7 @@ function Login() {
                     </div>
                     <div className='mt-5 mb-2 signin-controls'>
                         <button className='btn btn-block btn-primary' onClick={(event) => handleSignIn(event)}> Login</button>
-                        <a href='/' className='d-block text-right mt-3'> forgot password </a>
+                        <button className='btn btn-link w-100 d-block text-right mt-3'> forgot password </button>
                     </div>
                 </div>
             </div> 

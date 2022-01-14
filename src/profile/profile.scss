@@ -1,0 +1,32 @@
+.profile-container{
+    height: 100vh;
+    background: #85DCB7;
+
+    > .nav-container{
+        background: #000000;
+        max-height: 48px;
+        height: 48px;
+        > ul {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            >li {
+                &.active {
+                    border-bottom: 3px solid;
+                    background: green;
+                    padding: 0 2rem;
+                    height: 100%;
+                    padding-top: 1rem;
+                }
+                cursor: pointer;
+                display: inline-block;
+                color: #fff;
+                margin-left: 2rem;
+            }
+        }
+    }
+}
